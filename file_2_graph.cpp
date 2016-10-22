@@ -14,19 +14,19 @@ void FileToGraph::convert(){
 }
 
 void FileToGraph::get_graph(Graph &g){
-
+    g = graph;
 }
 
 void FileToGraph::get_users(Users &u){
-
+    u = users;
 }
 
 double FileToGraph::get_weight(){
-
+    return 0;
 }
 
 double FileToGraph::get_opinion(){
-
+    return 1;
 }
 
 
