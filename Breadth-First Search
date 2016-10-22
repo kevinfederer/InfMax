@@ -1,0 +1,43 @@
+Greedy Algorithm
+
+//*先计算O（S），通过Breadth-First Search*//
+//**
+* ADDQ (Q, p) - p PUSH 入 Q
+* DELQ (Q) - POP Q 並返回 Q 顶
+* FIRSTADJ (G,v) - v 的第一個邻接点，找不到則返回 -1
+* NEXTADJ (G,v) - v 的下一個邻接点，找不到則返回 -1
+* VISIT (v) - 訪問 v
+* visited [] - 是否已訪問
+*//
+void BFS(VLink G[], int v) {
+  int w;
+  //* 访问v 並入队*//
+  VISIT(v);
+  visited[v]=1;
+  ADDQ(Q,v);
+  //* 对队列 Q 的各元素 *//
+  while(!EMPTYQ(Q)) {
+    v=DELQ(Q);
+    w=FIRSTADJ(G,v);
+    //* 的各邻接点 *//
+    do {
+     //* 进行访问和入队 *//
+      if(visited[w] == 0) {
+        VISIT(w);
+        ADDQ(Q,w);
+        visited[w]=1;
+      }
+    } while (w=NEXTADJ(G,v)) != -1)
+  }
+}
+
+//* 对图Edge=(V,E)进行Breadth-First Search的主算法 *//
+void TRAVEL_BFS(VLink Edge[], bool visited[], int n) {
+  int i;
+  //*清零标记数组*//
+  for(i = 0; i < n; i++)
+    visited[i] = 0;
+  for(i = 0; i < n; i++)
+    if(visited[i] == 0)
+      BFS(G,i);
+}
